@@ -14,6 +14,9 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'src')
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
     {
