@@ -1,16 +1,25 @@
 import React from 'react';
 
 export default class Item extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = { liked: "0" }
+    }
 
-  subtitle (content) {
-    return (
-      <p>{content}</p>
-    )
-  }
+    like () {
+      this.setState({ liked: "+1" })
+    }
+
+    unlike () {
+      this.setState({ liked: "-1" })
+    }
 
   render () {
     return (
-      <p> {this.subtitle("Top 10 news")} {this.props.content}</p>
+      <div>
+        <p>{ this.props.content } --- <b>{ this.state.liked }</b></p>
+        <button onClick={() => this.like() }>Like</button> - <button onClick={() => this.unlike() }>Unlike</button>
+      </div>
     )
   }
 }
